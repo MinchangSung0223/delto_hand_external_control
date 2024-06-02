@@ -1,0 +1,205 @@
+<?xml version="1.0" ?>
+
+<robot name="delto_gripper_3f">
+
+   <material name="silver">
+      <color rgba="0.700 0.700 0.700 1"/>
+   </material>
+
+   <material name="black">
+      <color rgba="0.196 0.196 0.196 1"/>
+   </material>
+
+   <material name="white">
+      <color rgba="0.8 0.8 0.8 1"/>
+   </material>
+
+   <link name="delto_base_link">
+
+      <inertial>
+         <origin xyz="0.000883196 -7.49966e-05 0.0324928" rpy="0 0 0"/>
+         <mass value="0.370"/>
+         <inertia ixx="0.0003269" iyy="0.000311459" izz="0.000182324" ixy="-4.81638e-07" ixz="2.90647e-06" iyz="1.4022e-06"/>
+      </inertial>
+
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/visual/delto_base_link.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <material name="black"/>
+      </visual>
+
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/collision/delto_base_link.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+      </collision>
+
+   </link>
+
+
+
+<link name="F2_01">
+
+      <inertial>
+      
+         <origin xyz="0.000365161 1.10309e-07 0.0215156" rpy= "0 0 0"/>
+         <mass value="0.061"/>
+         <inertia ixx="1.89742e-05" iyy="2.20546e-05" izz="7.1394e-06" ixy="0" ixz="-2.59697e-07" iyz="0"/>
+      </inertial>
+
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/visual/link_01.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <material name="black"/>
+      </visual>
+      
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/collision/link_01.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+      </collision> 
+
+   </link>
+
+
+
+   <link name="F2_02">
+      <inertial>
+         <origin xyz="0.00353133 0.000519754 0.00690092" rpy="0 0 0"/>
+         <mass value="0.025"/>
+         <inertia ixx="3.51946e-06" iyy="2.02334e-06" izz="3.33911e-06" ixy="-6.14263e-08" ixz="-2.82283e-07" iyz="-1.17458e-07"/>
+      </inertial>
+
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/visual/link_02.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <material name="black"/>
+      </visual>
+
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/collision/link_02.stl" />
+         </geometry>
+      </collision>
+   </link>
+   <link name="F2_03">
+      <inertial>
+         <origin xyz="-0.0112398 9.3567e-05 -0.000281754" rpy="0 0 0"/>
+         <mass value="0.051"/>
+         <inertia ixx="4.27392e-06" iyy="9.20872e-06" izz="7.9414e-06" ixy="1.28652e-07" ixz="1.82142e-08" iyz="-3.12743e-09"/>
+      </inertial>
+
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/visual/link_03.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <material name="black"/>
+      </visual>
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/collision/link_03.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+      </collision>
+   </link>
+   <link name="F2_04">
+      <inertial>
+         <origin xyz="-0.0241548 0.000398931 -0.0001378" rpy="0 0 0"/>
+         <mass value="0.0710"/>
+         <inertia ixx="5.92843e-06" iyy="3.20691e-05" izz="3.11001e-05" ixy="9.13193e-07" ixz="3.8959e-08" iyz="-1.03979e-09"/>
+      </inertial>
+
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/visual/link_04.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+         <material name="black"/>
+      </visual>
+
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="meshes/collision/link_04.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+      </collision>
+
+   </link>
+   <link name="F2_TIP">
+      <inertial>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0" iyy="0" izz="0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+
+
+
+
+
+
+
+
+
+   <!--Joint -->
+
+
+
+   <joint name = "F2M1" type = "revolute">
+      <origin xyz="0.01320 -0.01960 0.06180" rpy="0 0 3.141592"/>
+      <parent link="delto_base_link"/>
+      <child link="F2_01"/>
+      <axis xyz="0.0 0.0 1.0"/>
+      <limit effort="10.0" velocity="5.0" lower="-1.0472" upper="1.0472" />
+      <dynamics damping="1.1" friction="1.1"/>
+   </joint>
+
+   <joint name = "F2M2" type = "revolute">
+      <origin xyz="-0.01420 0.0 0.03030" rpy="0 -1.57078 0"/>
+      <parent link="F2_01"/>
+      <child link="F2_02"/>
+      <axis xyz="0.0 0.0 1.0"/>
+      <limit effort="10.0" velocity="5.0" lower="-1.76278" upper="1.76278" />
+      <dynamics damping="1.1" friction="1.1"/>
+   </joint>
+   <joint name = "F2M3" type = "revolute">
+      <origin xyz="0.01010 0 0.01750 " rpy="0 1.57078 1.57078"/>
+      <parent link="F2_02"/>
+      <child link="F2_03"/>
+      <axis xyz="0.0 0.0 1.0"/>
+      <limit effort="10.0" velocity="5.0" lower="-0.15708" upper="2.53073" />
+      <dynamics damping="1.1" friction="1.1"/>
+   </joint>
+
+   <joint name = "F2M4" type = "revolute">
+      <origin xyz="-0.0434 0.0 0.0" rpy="0 0 0"/>
+      <parent link="F2_03"/>
+      <child link="F2_04"/>
+      <axis xyz="0.0 0.0 1.0"/>
+      <limit effort="10.0" velocity="5.0" lower="-0.226893" upper="2.02458"/>
+      <dynamics damping="1.1" friction="1.1"/>
+   </joint>   
+
+    <joint name = "TIP2" type="fixed">
+      <origin xyz="-0.05587 -0.00922 0.0 " rpy="1.57078 0 0 "/>
+      <parent link="F2_04"/>
+      <child link="F2_TIP"/>
+   </joint>
+
+
+
+
+
+
+
+</robot>
